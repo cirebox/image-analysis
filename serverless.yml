@@ -8,15 +8,17 @@ provider:
   name: aws
   region: us-east-1
   runtime: nodejs14.x
-  iamRoleStatements: 
-    - Effect: "Allow"
-      Action:
-        - rekognition:DetectLabels
-      Resource: "*"
-    - Effect: "Allow"
-      Action: 
-        - translate:TranslateText
-      Resource: "*"
+  iam: 
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - rekognition:DetectLabels
+          Resource: "*"
+        - Effect: "Allow"
+          Action: 
+            - translate:TranslateText
+          Resource: "*"
 
 functions:
   img-analysis:  
